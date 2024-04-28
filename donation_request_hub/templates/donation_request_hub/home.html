@@ -1,0 +1,48 @@
+{% extends "donation_request_hub/_base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Search form -->
+    <div class="search-section col-md-8 mx-auto">
+        <form id="search-form" class="search-form" method="post">
+            {% csrf_token %}
+            <input type="text" id="search-input" class="search-input" name="query" placeholder="Введіть ваш запит"
+                   value="{{ request.GET.query }}">
+            <button type="submit" id="search-button" class="search-button">Пошук</button>
+        </form>
+    </div>
+
+
+    <div id="search-results">
+        <!-- Displaying all posts -->
+        {% for post in page_obj %}
+            <div class="content-section">
+                <article class="media">
+                    <div class="media-body">
+                        <h5><a class="article-title" href="{{ post.source }}" target="_blank">{{ post.title }}</a></h5>
+                        <p class="article-content">{{ post.content }}</p>
+                    </div>
+                </article>
+            </div>
+        {% endfor %}
+
+        <!-- Navigation Buttons -->
+        <div class="bottom-navigation">
+            {% if page_obj.has_previous %}
+                <a class="btn btn-secondary" href="?page={{ page_obj.previous_page_number }}">Попередня</a>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <a class="btn btn-primary" href="?page={{ page_obj.next_page_number }}">Наступна</a>
+            {% endif %}
+        </div>
+
+        <div>
+            {% if page_obj.object_list %}
+                <form method="post" action="{% url 'donation_hub-main' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-danger" name="clear_posts">Очистити історію пошуку</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

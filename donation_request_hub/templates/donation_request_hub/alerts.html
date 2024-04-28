@@ -1,0 +1,27 @@
+{% extends "donation_request_hub/_base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Search form -->
+    <div class="search-section col-md-8 mx-auto">
+        <form id="search-form" class="search-form" method="post">
+            {% csrf_token %}
+            <input type="text" id="search-input" class="search-input" name="query" placeholder="Введіть назву області, або Автономна Республіка Крим"
+                   value="{{ request.GET.query }}">
+            <button type="submit" id="search-button" class="search-button">Пошук</button>
+        </form>
+    </div>
+
+    <div id="search-results">
+        <!-- Displaying all posts -->
+        {% for post in posts %}
+            <div class="content-section">
+                <article class="media">
+                    <div class="media-body">
+                        <h5><a class="article-title" href="{{ post.source }}" target="_blank">{{ post.title }}</a></h5>
+                        <p class="article-content">{{ post.content }}</p>
+                    </div>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'donation_request_hub/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'donation_request_hub/css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'donation_request_hub/css/foundations.css' %}">
+    <link rel="shortcut icon" href="{% static 'donation_request_hub/img/icon.ico' %}" />
+    {% if title %}
+        <title>Donation Request Hub - {{ title }}</title>
+    {% else %}
+        <title>Donation Request Hub</title>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nAapP6h7QOMCg6i0Hwu1RJsV+x1Koz7W23rd2Bywqjpl47ll9dgTJQkymXigleS2iRmR9GN4bwDqEBm72w8ShA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-wfd0O40p4K6vPoTJvBDh7Pv3RfnwEW6QmWBKck3JfwnqV4/G2EnUO1ueaZt3E8Ax" crossorigin="anonymous"></script>
+</head>
+<body style="background-image: url('{% static 'donation_request_hub/img/background.jpg' %}');">
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <section>
+                    <a class="mr-4 logo-animation" href="{% url 'donation_hub-main' %}">Donation Hub</a>
+                </section>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'donation_hub-main' %}">Головна</a>
+                        <a class="nav-item nav-link" href="{% url 'donation_hub-foundations' %}">Довірені фонди</a>
+                        <a class="nav-item nav-link" href="{% url 'donation_hub-alerts' %}">Повітряна тривога</a>
+                    </div>
+
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="{% url 'donation_hub-about' %}">Про нас</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8  mx-auto">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "donation_request_hub/_base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Prytula foundation -->
+    <div class="content-section">
+        <article class="media">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a href="https://prytulafoundation.org/about/projects" target="_blank" class="link-white">
+                        <img src="{% static 'donation_request_hub/img/prytula_fund.png' %}" class="img-prytula-fund">
+                        <p class="article-content">Благодійний фонд Сергія Притули опікується посиленням Сил Оборони України, а також допомогою цивільному населенню, яке постраждало від російської агресії.</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- United24 foundation -->
+    <div class="content-section">
+        <article class="media">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a href="https://u24.gov.ua/uk" target="_blank" class="link-white">
+                        <img src="{% static 'donation_request_hub/img/united24.png' %}" class="img-united24">
+                        <p class="article-content">UNITED24 — Офіційна фандрейзингова платформа України.</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- AzovOne foundation -->
+    <div class="content-section">
+        <article class="media">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a href="https://www.azov-one.com/" target="_blank" class="link-white">
+                        <img src="{% static 'donation_request_hub/img/azov_one.jpg' %}" class="img-azov-one">
+                        <p class="article-content">AZOV ONE — Єдина офіційна платформа зі збору коштів для батальйону Азов</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+{% endblock content %}

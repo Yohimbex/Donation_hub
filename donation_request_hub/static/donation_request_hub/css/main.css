@@ -1,0 +1,116 @@
+body {
+  background: #111111;
+  color: #eeeeee;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+  overflow-x: hidden;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #333333;
+  padding: 10px 20px;
+  border: 1px solid #555555;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Logo */
+section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+}
+
+section .logo-animation {
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  color: #0057b8;
+  font-size: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 0 0 0 1px;
+  animation: anime-1 1.6s ease-in-out infinite alternate;
+}
+
+section .logo-animation::before,
+section .logo-animation::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  animation: anime-2 1.6s ease-in-out infinite alternate;
+}
+
+section .logo-animation::before {
+  background: #0057b8;
+  top: 0;
+}
+
+section .logo-animation::after {
+  background: #ffd700;
+  bottom: 0;
+}
+
+@keyframes anime-1 {
+  100% {
+    color: #ffd700;
+  }
+}
+
+@keyframes anime-2 {
+  0% {
+    width: 10px;
+    height: 20px;
+    transform: translateX(0);
+  }
+  50% {
+    width: 20px;
+    height: 8px;
+  }
+  100% {
+    width: 10px;
+    height: 20px;
+    transform: translateX(130px);
+  }
+}
